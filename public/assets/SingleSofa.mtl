@@ -1,0 +1,51 @@
+newmtl Cloth_Mat
+Pr 1.0),
+Ni 1.5
+Ka 0 0 0
+Pm 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal SingleSofa/Cloth_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+Ns 16
+map_Kd SingleSofa/Cloth_Mat_baseColor.png
+newmtl Wood_Mat
+Ni 1.5
+Ka 0 0 0
+Pm 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal SingleSofa/Wood_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness SingleSofa/Wood_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+Ns 16
+map_Kd SingleSofa/Wood_Mat_baseColor.png
+newmtl Leather_Mat
+Ni 1.5
+Ka 0 0 0
+Pm 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal SingleSofa/Leather_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness SingleSofa/Leather_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+Ns 16
+map_Kd SingleSofa/Leather_Mat_baseColor.png
