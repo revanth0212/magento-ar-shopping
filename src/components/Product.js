@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import AFRAME from "aframe";
-
+import "aframe-ar";
 import Slider from "./Slider";
 
 function ARView() {
@@ -73,6 +73,20 @@ function ARView() {
   );
 
   useEffect(() => {
+    AFRAME.registerComponent("camera-output", {
+      init: function() {
+        navigator.mediaDevices
+          .getUserMedia({ audio: false, video: true })
+          .then(stream => {
+            const video = document.getElementById("video");
+            video.srcObject = stream;
+            video.onloadedmetadata = () => {
+              video.play();
+            };
+          });
+      }
+    });
+
     AFRAME.registerComponent("tap-place", {
       init: function() {
         const ground = document.getElementById("ground");
@@ -101,12 +115,13 @@ function ARView() {
   return (
     <>
       <>
-        <a-scene tap-place xrweb>
+        <a-scene tap-place camera-output>
           <a-assets>
             <a-asset-item
               id="treeModel"
               src="./3d-models/Tree/Tree.glb"
             ></a-asset-item>
+            <video id="video" playsInline></video>
           </a-assets>
 
           <a-camera
@@ -130,10 +145,10 @@ function ARView() {
           <a-entity
             id="ground"
             class="cantap"
-            geometry="primitive: box"
-            material="color: #ffffff; transparent: true; opacity: 0.0"
-            scale="1000 2 1000"
-            position="0 -1 0"
+            geometry="primitive: plane; height: 20; width: 20"
+            material="src: #video"
+            scale="1 1 1"
+            position="0 0 -10"
           ></a-entity>
         </a-scene>
       </>
