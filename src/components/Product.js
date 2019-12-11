@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-
 import AFRAME from "aframe";
+
+import Slider from "./Slider";
 
 function ARView() {
   const [position, setPosition] = useState({ x: 0, y: 10, z: 0 });
@@ -8,34 +9,68 @@ function ARView() {
   const [element, setElement] = useState(null);
 
   const registerClickHandler = useCallback((event, self) => {
-    // Create new entity for the new object
-    const newElement = document.createElement("a-entity");
-    setElement(newElement);
-
     // The raycaster gives a location of the touch in the scene
     const touchPoint = event.detail.intersection.point;
-    setPosition({ ...touchPoint });
 
-    const randomYRotation = Math.random() * 360;
-    setRotation([rotation[0], randomYRotation, rotation[2]]);
+    if (!document.getElementById("model")) {
+      // Create new entity for the new object
+      const newElement = document.createElement("a-entity");
+      setElement(newElement);
 
-    newElement.setAttribute("visible", "false");
-    newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
+      const randomYRotation = Math.random() * 360;
+      setRotation([rotation[0], randomYRotation, rotation[2]]);
 
-    newElement.setAttribute("gltf-model", "#treeModel");
-    self.el.sceneEl.appendChild(newElement);
+      newElement.setAttribute("id", "model");
+      newElement.setAttribute("draggable", "true");
+      newElement.setAttribute("visible", "false");
+      newElement.setAttribute("scale", "0.0001 0.0001 0.0001");
 
-    newElement.addEventListener("model-loaded", () => {
-      // Once the model is loaded, we are ready to show it popping in using an animation
-      newElement.setAttribute("visible", "true");
-      newElement.setAttribute("animation", {
-        property: "scale",
-        to: "0.01 0.01 0.01",
-        easing: "easeOutElastic",
-        dur: 800
+      newElement.setAttribute("gltf-model", "#treeModel");
+      self.el.sceneEl.appendChild(newElement);
+
+      newElement.addEventListener("model-loaded", () => {
+        // Once the model is loaded, we are ready to show it popping in using an animation
+        newElement.setAttribute("visible", "true");
+        newElement.setAttribute("animation", {
+          property: "scale",
+          to: "0.01 0.01 0.01",
+          easing: "easeOutElastic",
+          dur: 800
+        });
       });
-    });
+    }
+    setPosition({ ...touchPoint });
   }, []);
+
+  const handleXRotation = useCallback(
+    (_, newValue) => {
+      const xRotation = Number(newValue);
+      if (xRotation) {
+        setRotation([xRotation, rotation[1], rotation[2]]);
+      }
+    },
+    [rotation, setRotation]
+  );
+
+  const handleYRotation = useCallback(
+    (_, newValue) => {
+      const yRotation = Number(newValue);
+      if (yRotation) {
+        setRotation([rotation[0], yRotation, rotation[2]]);
+      }
+    },
+    [rotation, setRotation]
+  );
+
+  const handleZRotation = useCallback(
+    (_, newValue) => {
+      const zRotation = Number(newValue);
+      if (zRotation) {
+        setRotation([rotation[0], rotation[1], zRotation]);
+      }
+    },
+    [rotation, setRotation]
+  );
 
   useEffect(() => {
     AFRAME.registerComponent("tap-place", {
@@ -55,40 +90,92 @@ function ARView() {
     }
   }, [element, position, rotation]);
 
-  return (
-    <a-scene tap-place xrweb>
-      <a-assets>
-        <a-asset-item
-          id="treeModel"
-          src="./3d-models/Tree/Tree.glb"
-        ></a-asset-item>
-      </a-assets>
+  useEffect(() => {
+    if (element) {
+      element.addEventListener("click", event => {
+        console.log(event);
+      });
+    }
+  }, [element]);
 
-      <a-camera
-        position="0 8 0"
-        raycaster="objects: .cantap"
-        cursor="
+  return (
+    <>
+      <>
+        <a-scene tap-place xrweb>
+          <a-assets>
+            <a-asset-item
+              id="treeModel"
+              src="./3d-models/Tree/Tree.glb"
+            ></a-asset-item>
+          </a-assets>
+
+          <a-camera
+            position="0 8 0"
+            raycaster="objects: .cantap"
+            cursor="
           fuse: false;
           rayOrigin: mouse;"
-      ></a-camera>
+          ></a-camera>
 
-      <a-entity
-        light="type: directional;
+          <a-entity camera look-controls mouse-cursor></a-entity>
+
+          <a-entity
+            light="type: directional;
                intensity: 0.8;"
-        position="1 4.3 2.5"
-      ></a-entity>
+            position="1 4.3 2.5"
+          ></a-entity>
 
-      <a-light type="ambient" intensity="1"></a-light>
+          <a-light type="ambient" intensity="1"></a-light>
 
-      <a-entity
-        id="ground"
-        class="cantap"
-        geometry="primitive: box"
-        material="color: #ffffff; transparent: true; opacity: 0.0"
-        scale="1000 2 1000"
-        position="0 -1 0"
-      ></a-entity>
-    </a-scene>
+          <a-entity
+            id="ground"
+            class="cantap"
+            geometry="primitive: box"
+            material="color: #ffffff; transparent: true; opacity: 0.0"
+            scale="1000 2 1000"
+            position="0 -1 0"
+          ></a-entity>
+        </a-scene>
+      </>
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "column",
+          paddingLeft: "25%",
+          paddingTop: "5%"
+        }}
+      >
+        <Slider
+          label="X - Rotation"
+          valueLabelDisplay="auto"
+          name="x-rotation"
+          defaultValue={0}
+          min={-180}
+          max={180}
+          onChange={handleXRotation}
+        />
+
+        <Slider
+          label="Y - Rotation"
+          valueLabelDisplay="auto"
+          name="y-rotation"
+          defaultValue={0}
+          min={-180}
+          max={180}
+          onChange={handleYRotation}
+        />
+
+        <Slider
+          label="Z - Rotation"
+          valueLabelDisplay="auto"
+          name="z-rotation"
+          defaultValue={0}
+          min={-180}
+          max={180}
+          onChange={handleZRotation}
+        />
+      </div>
+    </>
   );
 }
 
