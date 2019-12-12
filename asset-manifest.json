@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/magento-ar-shopping/static/css/main.d1b05096.chunk.css",
-    "main.js": "/magento-ar-shopping/static/js/main.7bd929de.chunk.js",
-    "main.js.map": "/magento-ar-shopping/static/js/main.7bd929de.chunk.js.map",
+    "main.js": "/magento-ar-shopping/static/js/main.cf9c79f2.chunk.js",
+    "main.js.map": "/magento-ar-shopping/static/js/main.cf9c79f2.chunk.js.map",
     "runtime-main.js": "/magento-ar-shopping/static/js/runtime-main.c7c6cd5d.js",
     "runtime-main.js.map": "/magento-ar-shopping/static/js/runtime-main.c7c6cd5d.js.map",
     "static/js/2.8d6d272e.chunk.js": "/magento-ar-shopping/static/js/2.8d6d272e.chunk.js",
     "static/js/2.8d6d272e.chunk.js.map": "/magento-ar-shopping/static/js/2.8d6d272e.chunk.js.map",
     "index.html": "/magento-ar-shopping/index.html",
-    "precache-manifest.010d087da849b715b93b1afb4d452c04.js": "/magento-ar-shopping/precache-manifest.010d087da849b715b93b1afb4d452c04.js",
+    "precache-manifest.4c6d7335de95f3b50599aaf3f6687da4.js": "/magento-ar-shopping/precache-manifest.4c6d7335de95f3b50599aaf3f6687da4.js",
     "service-worker.js": "/magento-ar-shopping/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/magento-ar-shopping/static/css/main.d1b05096.chunk.css.map",
     "static/js/2.8d6d272e.chunk.js.LICENSE": "/magento-ar-shopping/static/js/2.8d6d272e.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c7c6cd5d.js",
     "static/js/2.8d6d272e.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.7bd929de.chunk.js"
+    "static/js/main.cf9c79f2.chunk.js"
   ]
 }
