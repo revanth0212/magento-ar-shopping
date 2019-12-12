@@ -1,6 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useCallback } from "react";
 import AFRAME from "aframe";
-import "aframe-ar";
 import Slider from "./Slider";
 
 function ARView() {
@@ -73,19 +73,12 @@ function ARView() {
   );
 
   useEffect(() => {
-    AFRAME.registerComponent("camera-output", {
-      init: function() {
-        navigator.mediaDevices
-          .getUserMedia({ audio: false, video: true })
-          .then(stream => {
-            const video = document.getElementById("video");
-            video.srcObject = stream;
-            video.onloadedmetadata = () => {
-              video.play();
-            };
-          });
-      }
-    });
+    navigator.mediaDevices
+      .getUserMedia({ audio: false, video: true })
+      .then(stream => {
+        const video = document.getElementById("video");
+        video.srcObject = stream;
+      });
 
     AFRAME.registerComponent("tap-place", {
       init: function() {
@@ -113,23 +106,28 @@ function ARView() {
   }, [element]);
 
   return (
-    <>
-      <>
-        <a-scene tap-place camera-output>
+    <div>
+      <div>
+        <video
+          id="video"
+          autoPlay
+          style={{
+            width: "100%",
+            height: "100%"
+          }}
+        ></video>
+        <a-scene tap-place>
           <a-assets>
             <a-asset-item
               id="treeModel"
               src="./3d-models/Tree/Tree.glb"
             ></a-asset-item>
-            <video id="video" playsInline></video>
           </a-assets>
 
           <a-camera
             position="0 8 0"
             raycaster="objects: .cantap"
-            cursor="
-          fuse: false;
-          rayOrigin: mouse;"
+            cursor="fuse: false;rayOrigin: mouse;"
           ></a-camera>
 
           <a-entity camera look-controls mouse-cursor></a-entity>
@@ -145,19 +143,19 @@ function ARView() {
           <a-entity
             id="ground"
             class="cantap"
-            geometry="primitive: plane; height: 20; width: 20"
-            material="src: #video"
-            scale="1 1 1"
+            geometry={`primitive: plane; height: ${window.outerHeight}; width: ${window.outerWidth}`}
+            material="color: #ffffff; transparent: true; opacity: 0.0"
             position="0 0 -10"
           ></a-entity>
         </a-scene>
-      </>
+      </div>
       <div
         style={{
-          display: "flex",
-          flexFlow: "column",
-          paddingLeft: "25%",
-          paddingTop: "5%"
+          position: "fixed",
+          bottom: "0%",
+          width: "50%",
+          height: "auto",
+          paddingLeft: "25%"
         }}
       >
         <Slider
@@ -190,7 +188,7 @@ function ARView() {
           onChange={handleZRotation}
         />
       </div>
-    </>
+    </div>
   );
 }
 
