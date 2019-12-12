@@ -73,12 +73,19 @@ function ARView() {
   );
 
   useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({ audio: false, video: true })
-      .then(stream => {
-        const video = document.getElementById("video");
-        video.srcObject = stream;
-      });
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices
+        .getUserMedia({ audio: false, video: true })
+        .then(stream => {
+          console.log("Setting video output to video tag", stream);
+          const video = document.getElementById("video");
+          video.srcObject = stream;
+        });
+    } else {
+      console.error(
+        "navigator.mediaDevices.getUserMedia is not supported. Use another browser."
+      );
+    }
 
     AFRAME.registerComponent("tap-place", {
       init: function() {
