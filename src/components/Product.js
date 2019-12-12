@@ -108,14 +108,7 @@ function ARView() {
   return (
     <div>
       <div>
-        <video
-          id="video"
-          autoPlay
-          style={{
-            width: "100%",
-            height: "100%"
-          }}
-        ></video>
+        <video id="video" autoPlay controls width="100%" height="100%"></video>
         <a-scene tap-place>
           <a-assets>
             <a-asset-item
@@ -166,6 +159,7 @@ function ARView() {
           min={-180}
           max={180}
           onChange={handleXRotation}
+          disabled={!element}
         />
 
         <Slider
@@ -176,6 +170,7 @@ function ARView() {
           min={-180}
           max={180}
           onChange={handleYRotation}
+          disabled={!element}
         />
 
         <Slider
@@ -186,6 +181,7 @@ function ARView() {
           min={-180}
           max={180}
           onChange={handleZRotation}
+          disabled={!element}
         />
       </div>
     </div>
