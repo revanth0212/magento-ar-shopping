@@ -118,10 +118,7 @@ function ARView() {
         ></video>
         <a-scene tap-place>
           <a-assets>
-            <a-asset-item
-              id="treeModel"
-              src="./3d-models/Tree/Tree.glb"
-            ></a-asset-item>
+            <a-asset-item id="treeModel" src="Tree.glb"></a-asset-item>
           </a-assets>
 
           <a-camera
