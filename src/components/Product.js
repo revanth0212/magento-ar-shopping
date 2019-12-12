@@ -73,21 +73,28 @@ function ARView() {
   );
 
   useEffect(() => {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      console.log("Requesting camera permission");
-      navigator.mediaDevices
-        .getUserMedia({ audio: false, video: true, facingMode: "environment" })
-        .then(stream => {
-          console.log("Setting video output to video tag", stream);
-          const video = document.getElementById("video");
-          video.srcObject = stream;
-        });
-      navigator.mediaDevices.enumerateDevices().then(console.log);
-    } else {
-      console.error(
-        "navigator.mediaDevices.getUserMedia is not supported. Use another browser."
-      );
-    }
+    setTimeout(() => {
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        console.log("Requesting camera permission");
+        navigator.mediaDevices
+          .getUserMedia({
+            audio: false,
+            video: true,
+            facingMode: "environment"
+          })
+          .then(stream => {
+            console.log("Setting video output to video tag", stream);
+            console.log(stream.getVideoTracks());
+            const video = document.getElementById("video");
+            video.srcObject = stream;
+            window.stream = stream;
+          });
+      } else {
+        console.error(
+          "navigator.mediaDevices.getUserMedia is not supported. Use another browser."
+        );
+      }
+    }, 1000);
 
     AFRAME.registerComponent("tap-place", {
       init: function() {
