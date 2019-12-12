@@ -74,6 +74,7 @@ function ARView() {
 
   useEffect(() => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      console.log('Requesting camera permission')
       navigator.mediaDevices
         .getUserMedia({ audio: false, video: true })
         .then(stream => {
