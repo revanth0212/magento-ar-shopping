@@ -1,0 +1,342 @@
+{
+    "asset": {
+        "copyright": "2019 (c) Adobe Inc.",
+        "generator": "Adobe Dimension - 3aa2998b3d3d63f4d10229f55f1891303b66b8c1",
+        "version": "2.0"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 42576,
+            "type": "VEC3",
+            "max": [
+                1.1019998788833619,
+                0.9389544129371643,
+                0.4921532869338989
+            ],
+            "min": [
+                -1.102990746498108,
+                0.0,
+                -0.5174989104270935
+            ]
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 42576,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 42576,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 63864,
+            "type": "SCALAR",
+            "max": [
+                42575.0
+            ],
+            "min": [
+                0.0
+            ]
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5126,
+            "count": 272128,
+            "type": "VEC3",
+            "max": [
+                1.134700059890747,
+                1.0886927843093873,
+                0.5174989104270935
+            ],
+            "min": [
+                -1.134700059890747,
+                0.38725367188453677,
+                -0.4961718022823334
+            ]
+        },
+        {
+            "bufferView": 5,
+            "componentType": 5126,
+            "count": 272128,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 6,
+            "componentType": 5126,
+            "count": 272128,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 7,
+            "componentType": 5125,
+            "count": 405234,
+            "type": "SCALAR",
+            "max": [
+                272127.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 510912,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 510912,
+            "byteLength": 510912,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1021824,
+            "byteLength": 340608,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1362432,
+            "byteLength": 255456,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1617888,
+            "byteLength": 3265536,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 4883424,
+            "byteLength": 3265536,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 8148960,
+            "byteLength": 2177024,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 10325984,
+            "byteLength": 1620936,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 11946920,
+            "uri": "snowglobe-sofa-blue_binary.bin"
+        }
+    ],
+    "cameras": [
+        {
+            "perspective": {
+                "znear": 0.000025400000595254825,
+                "yfov": 0.6024156808853149,
+                "zfar": 5.079999923706055,
+                "aspectRatio": 1.3333333730697632
+            },
+            "type": "perspective",
+            "name": "render_camera"
+        }
+    ],
+    "images": [
+        {
+            "name": "wood_Mat_baseColor",
+            "uri": "snowglobe-sofa-blue_images/wood_Mat_baseColor.jpg",
+            "mimeType": "image/jpeg"
+        },
+        {
+            "name": "wood_Mat_normal",
+            "uri": "snowglobe-sofa-blue_images/wood_Mat_normal.png",
+            "mimeType": "image/png"
+        },
+        {
+            "name": "image",
+            "uri": "snowglobe-sofa-blue_images/image.png",
+            "mimeType": "image/png"
+        },
+        {
+            "name": "image_image",
+            "uri": "snowglobe-sofa-blue_images/image_image.jpg",
+            "mimeType": "image/jpeg"
+        },
+        {
+            "name": "fabric_Mat_normal",
+            "uri": "snowglobe-sofa-blue_images/fabric_Mat_normal.png",
+            "mimeType": "image/png"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.14901961386203767
+            },
+            "normalTexture": {
+                "index": 1
+            },
+            "name": "wood_Mat"
+        },
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.09989874064922333,
+                    0.3915725648403168,
+                    0.5840784907341003,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 2
+                },
+                "metallicRoughnessTexture": {
+                    "index": 3
+                }
+            },
+            "normalTexture": {
+                "index": 4
+            },
+            "alphaMode": "MASK",
+            "name": "fabric_Mat",
+            "doubleSided": true
+        }
+    ],
+    "meshes": [
+        {
+            "name": "modern_3seatersofa_01_N3D",
+            "primitives": [
+                {
+                    "attributes": {
+                        "TEXCOORD_0": 2,
+                        "NORMAL": 1,
+                        "POSITION": 0
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        },
+        {
+            "name": "modern_3seatersofacus_01_N3D",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5,
+                        "TEXCOORD_0": 6
+                    },
+                    "indices": 7,
+                    "material": 1
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "translation": [
+                0.5,
+                0.30000001192092898,
+                0.5
+            ],
+            "rotation": [
+                -0.12059047073125839,
+                0.379409521818161,
+                0.04995020851492882,
+                0.9159756302833557
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "camera": 0,
+            "name": "render_camera_n3d"
+        },
+        {
+            "children": [
+                2,
+                3
+            ],
+            "translation": [
+                -0.3546721935272217,
+                0.0,
+                -0.35128822922706606
+            ],
+            "scale": [
+                0.2277650386095047,
+                0.2277650386095047,
+                0.2277650386095047
+            ],
+            "name": "modern_3seatersofa_01"
+        },
+        {
+            "mesh": 0,
+            "name": "modern_3seatersofa_01"
+        },
+        {
+            "mesh": 1,
+            "name": "modern_3seatersofacus_01"
+        }
+    ],
+    "samplers": [
+        {},
+        {},
+        {},
+        {},
+        {}
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1
+            ],
+            "name": "scene"
+        }
+    ],
+    "textures": [
+        {
+            "name": "wood_Mat::baseColor::image",
+            "sampler": 0,
+            "source": 0
+        },
+        {
+            "name": "wood_Mat::normal::image",
+            "sampler": 1,
+            "source": 1
+        },
+        {
+            "name": "image",
+            "sampler": 2,
+            "source": 2
+        },
+        {
+            "name": "image_image",
+            "sampler": 3,
+            "source": 3
+        },
+        {
+            "name": "fabric_Mat::normal::image",
+            "sampler": 4,
+            "source": 4
+        }
+    ],
+    "scene": 0
+}
