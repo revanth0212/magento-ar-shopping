@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/magento-ar-shopping/precache-manifest.d18dccc7a575fc4fbfeaa2a8f539ecb9.js"
+  "/magento-ar-shopping/precache-manifest.b52d57a6e3f9934baadbe74d2abb205b.js"
 );
 
 self.addEventListener('message', (event) => {

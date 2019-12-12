@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "119c5a9a22ef0cf6cb38935bab7eaa3c",
+    "revision": "6c9532f238afbede5b400716b9bae4f4",
     "url": "/magento-ar-shopping/index.html"
   },
   {
-    "revision": "acb0939c76e9d29f4347",
+    "revision": "e87ddb1d7210837a9406",
     "url": "/magento-ar-shopping/static/css/main.d1b05096.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/magento-ar-shopping/static/js/2.8d6d272e.chunk.js.LICENSE"
   },
   {
-    "revision": "acb0939c76e9d29f4347",
-    "url": "/magento-ar-shopping/static/js/main.5f3f2ad3.chunk.js"
+    "revision": "e87ddb1d7210837a9406",
+    "url": "/magento-ar-shopping/static/js/main.114ca740.chunk.js"
   },
   {
     "revision": "875bdaa6f2a9651fe06f",
