@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import AFRAME from "aframe";
 import Slider from "./Slider";
-import Webcam from "react-webcam";
 
 function ARView() {
   const [position, setPosition] = useState({ x: 0, y: 10, z: 0 });
@@ -74,28 +73,26 @@ function ARView() {
   );
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    //     console.log("Requesting camera permission");
-    //     navigator.mediaDevices
-    //       .getUserMedia({
-    //         audio: false,
-    //         video: true,
-    //         facingMode: "environment"
-    //       })
-    //       .then(stream => {
-    //         console.log("Setting video output to video tag", stream);
-    //         console.log(stream.getVideoTracks());
-    //         const video = document.getElementById("video");
-    //         video.srcObject = stream;
-    //         window.stream = stream;
-    //       });
-    //   } else {
-    //     console.error(
-    //       "navigator.mediaDevices.getUserMedia is not supported. Use another browser."
-    //     );
-    //   }
-    // }, 1000);
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      console.log("Requesting camera permission");
+      navigator.mediaDevices
+        .getUserMedia({
+          audio: false,
+          video: true,
+          facingMode: "environment"
+        })
+        .then(stream => {
+          console.log("Setting video output to video tag", stream);
+          console.log(stream.getVideoTracks());
+          const video = document.getElementById("video");
+          video.srcObject = stream;
+          window.stream = stream;
+        });
+    } else {
+      console.error(
+        "navigator.mediaDevices.getUserMedia is not supported. Use another browser."
+      );
+    }
 
     AFRAME.registerComponent("tap-place", {
       init: function() {
@@ -125,13 +122,14 @@ function ARView() {
   return (
     <div>
       <div>
-        {/* <video id="video" autoPlay controls width="100%" height="100%"></video> */}
-        <Webcam
-          audio={false}
-          videoConstraints={{ facingMode: "user" }}
-          width={window.outerWidth}
-          height={window.outerHeight}
-        />
+        <video
+          id="video"
+          autoPlay
+          style={{
+            width: window.outerWidth,
+            height: window.outerHeight
+          }}
+        ></video>
         <a-scene tap-place>
           <a-assets>
             <a-asset-item
